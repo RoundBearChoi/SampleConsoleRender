@@ -25,9 +25,9 @@ void FillBox(int x1, int y1, int x2, int y2, short c = 0x2588, short col = 0x000
 	}
 }
 
-void DrawDot(int x, int y)
+void DrawDot(int x, int y, short c = 0x2588)
 {
-	FillBox(x, y, x + 1, y + 1, PIXEL_SOLID, FG_CYAN);
+	FillBox(x, y, x + 1, y + 1, PIXEL_SOLID, c);
 }
 
 void StringOut(int x, int y, std::wstring c, short col = 0x000F)
@@ -50,11 +50,11 @@ void UpdateGame()
 	{
 		for (int row = 0; row < xRows; row++)
 		{
-			DrawDot(row, col);
+			DrawDot(row, col, FG_GREEN);
 		}
 	}
 
-	DrawDot(8, 8);
+	DrawDot(8, 8, FG_RED);
 
 	StringOut(1, height + 1,
 		L"here's a string..");
