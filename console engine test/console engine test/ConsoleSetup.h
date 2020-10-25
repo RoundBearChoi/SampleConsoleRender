@@ -1,37 +1,36 @@
 #pragma once
 #include "olcConsoleGameEngine.h"
+#include "Game.h"
 
-class ConsoleSetup : public olcConsoleGameEngine
+namespace RB
 {
-public:
-	CHAR_INFO* GetScreenBuffer()
+	class ConsoleSetup : public olcConsoleGameEngine
 	{
-		return m_bufScreen;
-	}
+	public:
+		Game game;
 
-	void(*UpdateFunction)() = nullptr;
-
-	void InitConsole(int width, int height, int dotSize)
-	{
-		ConstructConsole(
-			width,
-			height + 10,
-			dotSize,
-			dotSize);
-	}
-
-	virtual bool OnUserCreate()
-	{
-		return true;
-	}
-
-	virtual bool OnUserUpdate(float fElapsedTime)
-	{
-		if (UpdateFunction != nullptr)
+		void InitConsole()
 		{
-			UpdateFunction();
+			ConstructConsole(
+				game.specs.width,
+				game.specs.height + 10,
+				game.specs.dotSize,
+				game.specs.dotSize);
+
+			game.Init(m_bufScreen);
+
+			Start();
 		}
 
-		return true;
-	}
-};
+		virtual bool OnUserCreate()
+		{
+			return true;
+		}
+
+		virtual bool OnUserUpdate(float fElapsedTime)
+		{
+			game.Update();
+			return true;
+		}
+	};
+}

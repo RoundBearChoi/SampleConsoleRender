@@ -4,27 +4,30 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{35e03771-c318-473d-9a76-c2ee6b025647}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Setup">
-      <UniqueIdentifier>{dbfb4cce-0008-4b84-aa06-83aea53553dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\OLC">
-      <UniqueIdentifier>{f5e4c48d-2ed3-4a66-9b35-57d30f61378b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game">
+    <Filter Include="Sample Console Game Window">
       <UniqueIdentifier>{3ba2571a-7b61-4a95-be51-c630c027fd5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleSetup.h">
-      <Filter>Engine\Setup</Filter>
-    </ClInclude>
     <ClInclude Include="olcConsoleGameEngine.h">
-      <Filter>Engine\OLC</Filter>
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleSetup.h">
+      <Filter>Sample Console Game Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Sample Console Game Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Specs.h">
+      <Filter>Sample Console Game Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Sample Console Game Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Game</Filter>
+      <Filter>Sample Console Game Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
