@@ -15,7 +15,7 @@ public:
 	{
 		ConstructConsole(
 			width,
-			height,
+			height + 10,
 			dotSize,
 			dotSize);
 	}
@@ -27,8 +27,6 @@ public:
 
 	virtual bool OnUserUpdate(float fElapsedTime)
 	{
-		Fill(0, 0, 128, 72, PIXEL_SOLID, FG_WHITE);
-
 		if (UpdateFunction != nullptr)
 		{
 			UpdateFunction();

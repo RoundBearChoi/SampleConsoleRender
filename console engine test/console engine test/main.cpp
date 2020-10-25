@@ -1,8 +1,8 @@
 #include "ConsoleSetup.h"
 
-int width = 128;
-int height = 72;
-int dotSize = 10;
+int width = 50;
+int height = 30;
+int dotSize = 20;
 CHAR_INFO* buffer = nullptr;
 
 void DrawOnScreen(int x, int y, short c = 0x2588, short col = 0x000F)
@@ -30,10 +30,21 @@ void DrawDot(int x, int y)
 	FillBox(x, y, x + 1, y + 1, PIXEL_SOLID, FG_CYAN);
 }
 
+void StringOut(int x, int y, std::wstring c, short col = 0x000F)
+{
+	for (size_t i = 0; i < c.size(); i++)
+	{
+		buffer[y * width + x + i].Char.UnicodeChar = c[i];
+		buffer[y * width + x + i].Attributes = col;
+	}
+}
+
 void UpdateGame()
 {
-	int xRows = 10;
-	int yColumns = 30;
+	FillBox(0, 0, width, height, PIXEL_SOLID, FG_WHITE);
+
+	int xRows = 5;
+	int yColumns = 5;
 
 	for (int col = 0; col < yColumns; col++)
 	{
@@ -43,7 +54,13 @@ void UpdateGame()
 		}
 	}
 
-	DrawDot(20, 35);
+	DrawDot(8, 8);
+
+	StringOut(1, height + 1,
+		L"here's a string..");
+
+	StringOut(1, height + 2,
+		L"testing..");
 }
 
 int main()
