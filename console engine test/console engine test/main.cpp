@@ -55,12 +55,8 @@ void UpdateGame()
 	}
 
 	DrawDot(8, 8, FG_RED);
-
-	StringOut(1, height + 1,
-		L"here's a string..");
-
-	StringOut(1, height + 2,
-		L"testing..");
+	StringOut(1, height + 1, L"here's a string..");
+	StringOut(1, height + 2, L"testing..");
 }
 
 int main()
