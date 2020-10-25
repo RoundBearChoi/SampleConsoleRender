@@ -16,10 +16,12 @@ namespace RB
 
 		void StringOut(int x, int y, std::wstring c, short col = 0x000F)
 		{
-			for (size_t i = 0; i < c.size(); i++)
+			for (int i = 0; i < c.size(); i++)
 			{
-				buffer[y * specs->width + x + i].Char.UnicodeChar = c[i];
-				buffer[y * specs->width + x + i].Attributes = col;
+				size_t index = y * specs->width + x + i;
+
+				buffer[index].Char.UnicodeChar = c[i];
+				buffer[index].Attributes = col;
 			}
 		}
 
